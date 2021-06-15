@@ -20,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initView();
+    }
+
+
+
+    private void initView () {
         textViewFormula = findViewById(R.id.textView_formula);
         textViewResult = findViewById(R.id.textView_result);
-
         initButton();
-
     }
 
 
@@ -52,74 +56,139 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        View.OnClickListener OnClickListener = new View.OnClickListener() {
+
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.button_1: setTextViewFormulaNum(ButtonData.ONE);
-                        break;
-                    case R.id.button_2: setTextViewFormulaNum(ButtonData.TWO);
-                        break;
-                    case R.id.button_3: setTextViewFormulaNum(ButtonData.THREE);
-                        break;
-                    case R.id.button_4: setTextViewFormulaNum(ButtonData.FOUR);
-                        break;
-                    case R.id.button_5: setTextViewFormulaNum(ButtonData.FIVE);
-                        break;
-                    case R.id.button_6: setTextViewFormulaNum(ButtonData.SIX);
-                        break;
-                    case R.id.button_7: setTextViewFormulaNum(ButtonData.SEVEN);
-                        break;
-                    case R.id.button_8: setTextViewFormulaNum(ButtonData.EIGHT);
-                        break;
-                    case R.id.button_9: setTextViewFormulaNum(ButtonData.NINE);
-                        break;
-                    case R.id.button_0: setTextViewFormulaNum(ButtonData.ZERO);
-                        break;
-                    case R.id.button_plus: setTextViewFormulaSymb(ButtonData.PLUS);
-                        break;
-                    case R.id.button_minus: setTextViewFormulaSymb(ButtonData.MINUS);
-                        break;
-                    case R.id.button_divide: setTextViewFormulaSymb(ButtonData.DIVIDE);
-                        break;
-                    case R.id.button_multiply: setTextViewFormulaSymb(ButtonData.MULTIPLY);
-                        break;
-                    case R.id.button_decimalSeparator: setTextViewFormulaSymbPoint(ButtonData.POINT);
-                        break;
-                    case R.id.button_C: delTextViewFormulaFull();
-                        break;
-                    case R.id.button_backspace: delTextViewFormula();
-                        break;
-                    case R.id.button_plus_minus:
-                        break;
-                    case R.id.button_equal: setTextViewResult();
-                        break;
-                }
+                setTextViewFormulaNum(ButtonData.ONE);
             }
-        };
+        });
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.TWO);
+            }
+        });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.THREE);
+            }
+        });
 
-        button1.setOnClickListener(OnClickListener);
-        button2.setOnClickListener(OnClickListener);
-        button3.setOnClickListener(OnClickListener);
-        button4.setOnClickListener(OnClickListener);
-        button5.setOnClickListener(OnClickListener);
-        button6.setOnClickListener(OnClickListener);
-        button7.setOnClickListener(OnClickListener);
-        button8.setOnClickListener(OnClickListener);
-        button9.setOnClickListener(OnClickListener);
-        button0.setOnClickListener(OnClickListener);
-        button_plus.setOnClickListener(OnClickListener);
-        button_minus.setOnClickListener(OnClickListener);
-        button_divide.setOnClickListener(OnClickListener);
-        button_mult.setOnClickListener(OnClickListener);
-        button_decimalSeparator.setOnClickListener(OnClickListener);
-        button_c.setOnClickListener(OnClickListener);
-        button_backspace.setOnClickListener(OnClickListener);
-        button_plus_minus.setOnClickListener(OnClickListener);
-        button_equal.setOnClickListener(OnClickListener);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.FOUR);
+            }
+        });
 
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.FIVE);
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.SIX);
+            }
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.SEVEN);
+            }
+        });
+
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.EIGHT);
+            }
+        });
+
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.NINE);
+            }
+        });
+
+        button0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaNum(ButtonData.ZERO);
+            }
+        });
+
+        button_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaSymb(ButtonData.PLUS);
+            }
+        });
+
+        button_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaSymb(ButtonData.MINUS);
+            }
+        });
+
+        button_divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaSymb(ButtonData.DIVIDE);
+            }
+        });
+
+        button_mult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaSymb(ButtonData.MULTIPLY);
+            }
+        });
+
+        button_decimalSeparator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewFormulaSymbPoint(ButtonData.POINT);
+            }
+        });
+
+        button_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delTextViewFormulaFull();
+            }
+        });
+
+        button_backspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delTextViewFormula();
+            }
+        });
+
+        button_plus_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        button_equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTextViewResult();
+            }
+        });
     }
 
 
