@@ -9,11 +9,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String BY_ZERO = "Деление на ноль не возможно";
-
     private TextView textViewFormula;
     private TextView textViewResult;
-    private StringBuilder tempFormula = new StringBuilder();
+
+    Data tempFormulaArr = new Data();
+    Calc calc = new Calc();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,245 +62,175 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.ONE);
+                setTextViewFormula(ButtonData.ONE);
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.TWO);
+                setTextViewFormula(ButtonData.TWO);
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.THREE);
+                setTextViewFormula(ButtonData.THREE);
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.FOUR);
+                setTextViewFormula(ButtonData.FOUR);
             }
         });
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.FIVE);
+                setTextViewFormula(ButtonData.FIVE);
             }
         });
 
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.SIX);
+                setTextViewFormula(ButtonData.SIX);
             }
         });
 
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.SEVEN);
+                setTextViewFormula(ButtonData.SEVEN);
             }
         });
 
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.EIGHT);
+                setTextViewFormula(ButtonData.EIGHT);
             }
         });
 
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.NINE);
+                setTextViewFormula(ButtonData.NINE);
             }
         });
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaNum(ButtonData.ZERO);
+                setTextViewFormula(ButtonData.ZERO);
             }
         });
 
         button_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaSymb(ButtonData.PLUS);
+                setTextViewFormula(ButtonData.PLUS);
             }
         });
 
         button_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaSymb(ButtonData.MINUS);
+                setTextViewFormula(ButtonData.MINUS);
             }
         });
 
         button_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaSymb(ButtonData.DIVIDE);
+                setTextViewFormula(ButtonData.DIVIDE);
             }
         });
 
         button_mult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaSymb(ButtonData.MULTIPLY);
+                setTextViewFormula(ButtonData.MULTIPLY);
             }
         });
 
         button_decimalSeparator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewFormulaSymbPoint(ButtonData.POINT);
+                setTextViewFormula(ButtonData.POINT);
             }
         });
 
         button_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delTextViewFormulaFull();
+                delTextViewFull();
             }
         });
 
         button_backspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delTextViewFormula();
+                delTextViewFormulaSymb();
             }
         });
 
         button_plus_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                setTextViewPlusMinus();
             }
         });
 
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTextViewResult();
+                getTextViewResult();
             }
         });
     }
 
 
 
-    private void setTextViewFormulaNum (ButtonData value) {
-        textViewFormula.setText(tempFormula.append(value.getSymbol()));
+    private void setTextViewFormula (ButtonData symb) {
+        tempFormulaArr.setSymbolOnFormula(symb);
+        getTextView();
     }
 
 
 
-
-    private void setTextViewFormulaSymb (ButtonData value) {
-        if (tempFormula.length() >= 1) {
-            if (tempFormula.indexOf("+") == -1 && tempFormula.indexOf("-") == -1 &&
-                    tempFormula.indexOf("/") == -1 && tempFormula.indexOf("*") == -1) {
-                textViewFormula.setText(tempFormula.append(value.getSymbol()));
-            }
-        }
+    private void setTextViewPlusMinus() {
+        tempFormulaArr.setPlusMinusOnFormula();
+        getTextView();
     }
 
 
 
-    private void setTextViewFormulaSymbPoint (ButtonData value) {
-
-        if (tempFormula.length() >= 1) {
-            if (tempFormula.indexOf("+") >= 0 || tempFormula.indexOf("-") >= 0 ||
-                    tempFormula.indexOf("/") >= 0 || tempFormula.indexOf("*") >= 0 )  {
-                if (!tempFormula.substring(tempFormula.length()-1).equals("+") &&
-                        !tempFormula.substring(tempFormula.length()-1).equals("-") &&
-                        !tempFormula.substring(tempFormula.length()-1).equals("/") &&
-                        !tempFormula.substring(tempFormula.length()-1).equals("*")) {
-                    if ((tempFormula.substring(tempFormula.indexOf("+")+1).indexOf(",") == -1) ||
-                            (tempFormula.substring(tempFormula.indexOf("-")+1).indexOf(",") == -1) ||
-                            (tempFormula.substring(tempFormula.indexOf("/")+1).indexOf(",") == -1) ||
-                            (tempFormula.substring(tempFormula.indexOf("*")+1).indexOf(",") == -1)){
-                        textViewFormula.setText(tempFormula.append(value.getSymbol()));
-                    }
-                }
-            } else {
-                if (tempFormula.indexOf(",") == -1 ){
-                    if (!tempFormula.substring(tempFormula.length()-1).equals(",")) {
-                        textViewFormula.setText(tempFormula.append(value.getSymbol()));
-                    }
-                }
-            }
-        }
+    private void delTextViewFull() {
+        tempFormulaArr.clear();
+        getTextView();
+        getTextViewResult();
     }
 
 
 
-    private void delTextViewFormulaFull () {
-        if (tempFormula.length() >= 0) {
-            textViewFormula.setText(tempFormula.delete(0, tempFormula.length()));
-            textViewResult.setText(tempFormula.delete(0, tempFormula.length()));
-        }
+    private void delTextViewFormulaSymb() {
+        tempFormulaArr.remove();
+        getTextView();
     }
 
 
 
-    private void delTextViewFormula () {
-        if (tempFormula.length() > 0) {
-            textViewFormula.setText(tempFormula.deleteCharAt(tempFormula.length() - 1));
-        }
+    private void getTextView() {
+        textViewFormula.setText(tempFormulaArr.getFormula());
     }
 
 
 
-    private void setTextViewResult () {
-
-        if (tempFormula.length() != 0) {
-
-            String[] strArr = tempFormula.toString()
-                    .replaceAll(",", ".")
-                    .split("\\+|\\-|\\/|\\*");
-            String strSymb = tempFormula.toString()
-                    .replaceAll("\\d|\\,", " ")
-                    .trim();
-            boolean isZero = false;
-
-            float result = Float.parseFloat(strArr[0]);
-
-            for (int j = 1; j < strArr.length; j++) {
-                switch (strSymb) {
-                    case "+":
-                        result = result + Float.parseFloat(strArr[j]);
-                        break;
-                    case "-":
-                        result = result - Float.parseFloat(strArr[j]);
-                        break;
-                    case "/":
-                        if (Float.parseFloat(strArr[j]) == 0) {
-                            isZero = true;
-                        }
-                        result = result / Float.parseFloat(strArr[j]);
-                        break;
-                    case "*":
-                        result = result * Float.parseFloat(strArr[j]);
-                        break;
-                }
-            }
-
-
-            if (isZero) {
-                textViewResult.setText(BY_ZERO);
-            } else if (result % 1 < 0.0001) {
-                textViewResult.setText(String.format("%.0f=", result));
-            } else {
-                textViewResult.setText(String.format("%f=", result).replace(".", ","));
-            }
-
-        }
+    private void getTextViewResult() {
+        textViewResult.setText(calc.getResult(tempFormulaArr));
     }
 }
