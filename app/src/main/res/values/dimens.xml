@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="button_text">42sp</dimen>
-    <dimen name="result_text">26sp</dimen>
-    <dimen name="formula_text">26sp</dimen>
+    <dimen name="result_text">42sp</dimen>
+    <dimen name="formula_text">42sp</dimen>
 </resources>
