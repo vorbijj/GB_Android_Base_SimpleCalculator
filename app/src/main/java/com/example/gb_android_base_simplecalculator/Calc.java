@@ -70,7 +70,7 @@ public class Calc {
         } else if (isValueTendsToZero(value1)) {
             return TO_ZERO;
         } else {
-            return decimalFormat.format(value1).replace(".", ",");
+            return decimalFormat.format(value1).replace(".", ",").concat("=");
         }
     }
 
