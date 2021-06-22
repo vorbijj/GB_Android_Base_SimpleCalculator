@@ -13,4 +13,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppStyleButton" >
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/indigo_light</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">@dimen/shadow</item>
+        <item name="android:shadowDy">@dimen/shadow</item>
+        <item name="android:shadowRadius">@dimen/button_text_shadow</item>
+    </style>
+
+
 </resources>

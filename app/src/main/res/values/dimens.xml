@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button_text">42sp</dimen>
+    <dimen name="button_text_size">42sp</dimen>
     <dimen name="result_text">42sp</dimen>
     <dimen name="formula_text">42sp</dimen>
+    <dimen name="button_text_shadow">5</dimen>
+    <dimen name="shadow">0.5</dimen>
 </resources>
