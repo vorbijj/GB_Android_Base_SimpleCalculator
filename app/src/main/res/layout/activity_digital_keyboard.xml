@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:theme="@style/AppStyleButton">
+    android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,35 +13,33 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_C"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_C"
-            android:backgroundTint="@color/orange" />
+            android:backgroundTint="@color/orange"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_backspace"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_backspace"
-            android:backgroundTint="@color/orange" />
+            android:backgroundTint="@color/orange"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_plus_minus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/button_text_size_small"
             android:backgroundTint="@color/indigo"
-            android:text="@string/_plus_minus" />
+            android:text="@string/_plus_minus"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_divide"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_divide"
-            android:backgroundTint="@color/indigo" />
+            android:backgroundTint="@color/indigo"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,32 +49,28 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_7" />
+            android:text="@string/_7"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_8" />
+            android:text="@string/_8"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_9" />
+            android:text="@string/_9"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_multiply"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_multiply"
-            android:backgroundTint="@color/indigo" />
+            android:backgroundTint="@color/indigo"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,32 +80,28 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_4" />
+            android:text="@string/_4"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_5" />
+            android:text="@string/_5"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_6" />
+            android:text="@string/_6"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_minus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_minus"
-            android:backgroundTint="@color/indigo" />
+            android:backgroundTint="@color/indigo"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -121,32 +111,28 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_1" />
+            android:text="@string/_1"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_2" />
+            android:text="@string/_2"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_3" />
+            android:text="@string/_3"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_plus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_plus"
-            android:backgroundTint="@color/indigo"/>
+            android:backgroundTint="@color/indigo"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp"/>
 
     </LinearLayout>
 
@@ -157,25 +143,23 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/StyleButton"
             android:layout_weight="2"
-            android:text="@string/_0" />
+            android:text="@string/_0"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_decimalSeparator"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/_decimalSeparator" />
+            android:text="@string/_decimalSeparator"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/_equal"
-            android:backgroundTint="@color/purple_500"/>
+            android:backgroundTint="@color/purple_500"
+            style="@style/StyleButton"
+            app:cornerRadius="0dp" />
     </LinearLayout>
 
 
