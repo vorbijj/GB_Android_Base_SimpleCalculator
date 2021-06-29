@@ -62,6 +62,9 @@ public class Data {
             this.symbArr.add(ButtonData.SPACE_L.getSymbol());
             this.symbArr.add(symb.getSymbol());
             this.symbArr.add(ButtonData.SPACE_R.getSymbol());
+        } else if (this.symbArr.contains(ButtonData.SPACE_R.getSymbol())) {
+            int indexSymb = this.symbArr.indexOf(ButtonData.SPACE_R.getSymbol()) - 1;
+            this.symbArr.set(indexSymb, symb.getSymbol());
         }
     }
 
