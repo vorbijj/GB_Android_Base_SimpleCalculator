@@ -1,8 +1,13 @@
 package com.example.gb_android_base_simplecalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +32,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent runSettings = new Intent (MainActivity.this, SettingsActivity.class);
+        startActivity(runSettings);
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
     private void initView () {
         textViewFormula = findViewById(R.id.textView_formula);
         textViewResult = findViewById(R.id.textView_result);
@@ -35,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void initButton () {
+    private void initButton () {
         Button button1 = findViewById(R.id.button_1);
         Button button2 = findViewById(R.id.button_2);
         Button button3 = findViewById(R.id.button_3);

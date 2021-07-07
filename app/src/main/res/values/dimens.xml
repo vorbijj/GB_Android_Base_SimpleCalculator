@@ -4,10 +4,14 @@
     <dimen name="button_text_size_small">32sp</dimen>
     <dimen name="result_text">42sp</dimen>
     <dimen name="formula_text">42sp</dimen>
+    <dimen name="setting_text">42sp</dimen>
+    <dimen name="setting_text_small">32sp</dimen>
     <dimen name="layout_width">0dp</dimen>
     <dimen name="layout_weight">1</dimen>
     <dimen name="button_text_shadow">5</dimen>
     <dimen name="shadow">0.5</dimen>
     <dimen name="inset">1dp</dimen>
     <dimen name="radius">0dp</dimen>
+    <dimen name="margin_top">40dp</dimen>
+    <dimen name="inset_frame">15dp</dimen>
 </resources>
