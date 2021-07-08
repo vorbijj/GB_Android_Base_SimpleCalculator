@@ -13,5 +13,6 @@
     <dimen name="inset">1dp</dimen>
     <dimen name="radius">0dp</dimen>
     <dimen name="margin_top">40dp</dimen>
+    <dimen name="margin_bottom">40dp</dimen>
     <dimen name="inset_frame">15dp</dimen>
 </resources>
