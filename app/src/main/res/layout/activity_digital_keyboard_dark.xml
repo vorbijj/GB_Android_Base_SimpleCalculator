@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_C"
+            android:text="@string/_C"
+            android:backgroundTint="@color/saddle_brown"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_backspace"
+            android:text="@string/_backspace"
+            android:backgroundTint="@color/saddle_brown"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_plus_minus"
+            style="@style/StyleButtonDark"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/_plus_minus"
+            android:textSize="@dimen/button_text_size_small"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_divide"
+            style="@style/StyleButtonDark"
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/_divide"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_7"
+            android:text="@string/_7"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_8"
+            android:text="@string/_8"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_9"
+            android:text="@string/_9"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_multiply"
+            style="@style/StyleButtonDark"
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/_multiply"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_4"
+            android:text="@string/_4"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_5"
+            android:text="@string/_5"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_6"
+            android:text="@string/_6"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_minus"
+            style="@style/StyleButtonDark"
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/_minus"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_1"
+            android:text="@string/_1"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_2"
+            android:text="@string/_2"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_3"
+            android:text="@string/_3"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_plus"
+            style="@style/StyleButtonDark"
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/_plus"
+            app:cornerRadius="0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_0"
+            style="@style/StyleButtonDark"
+            android:layout_weight="2"
+            android:text="@string/_0"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_decimalSeparator"
+            android:text="@string/_decimalSeparator"
+            style="@style/StyleButtonDark"
+            app:cornerRadius="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_equal"
+            style="@style/StyleButton"
+            android:backgroundTint="@color/dark_slate_gray"
+            android:text="@string/_equal"
+            app:cornerRadius="0dp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

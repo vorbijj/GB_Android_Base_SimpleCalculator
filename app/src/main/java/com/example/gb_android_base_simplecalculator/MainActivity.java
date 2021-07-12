@@ -1,28 +1,74 @@
 package com.example.gb_android_base_simplecalculator;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Constants{
+
+    private SettingsData settingsData = new SettingsData();
 
     private TextView textViewFormula;
     private TextView textViewResult;
 
-    Data tempFormulaArr = new Data();
-    Calc calc = new Calc();
+    private Data tempFormulaArr = new Data();
+    private Calc calc = new Calc();
+
+
+
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = result.getData();
+                        settingsData = intent.getExtras().getParcelable(YOUR_SETTING);
+
+                        recreate();
+                    }
+                }
+            });
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        getSettings();
+        setTheme(getAppTheme());
+        setContentView(getAppLayout());
 
         initView();
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent runSettings = new Intent (MainActivity.this, SettingsActivity.class);
+        mStartForResult.launch(runSettings);
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -35,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void initButton () {
+    private void initButton () {
         Button button1 = findViewById(R.id.button_1);
         Button button2 = findViewById(R.id.button_2);
         Button button3 = findViewById(R.id.button_3);
@@ -233,4 +279,29 @@ public class MainActivity extends AppCompatActivity {
     private void getTextViewResult() {
         textViewResult.setText(calc.getResult(tempFormulaArr));
     }
+
+
+
+    private void getSettings() {
+        SharedPreferences sharedPref = getSharedPreferences(APP_THEME, MODE_PRIVATE);
+        int value = sharedPref.getInt(APP_THEME, LIGHT);
+        settingsData.setSetting(value);
+    }
+
+    private int getAppTheme(){
+        if (settingsData.getSetting() == DARK) {
+            return R.style.MyDarkTheme;
+        } else {
+            return R.style.MyLightTheme;
+        }
+    }
+
+    public int getAppLayout(){
+        if (settingsData.getSetting() == DARK) {
+            return R.layout.activity_main_dark;
+        } else {
+            return R.layout.activity_main;
+        }
+    }
+
 }

@@ -10,4 +10,11 @@
     <color name="orange">#ffa726</color>
     <color name="indigo_light">#c5cae9</color>
     <color name="indigo">#9fa8da</color>
+    <color name="grey_dark">#293133</color>
+    <color name="grey">#808080</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="saddle_brown">#8B4513</color>
+    <color name="light_slate_gray">#778899</color>
+    <color name="steel_blue">#4682B4</color>
+    <color name="dark_slate_gray">#2F4F4F</color>
 </resources>
