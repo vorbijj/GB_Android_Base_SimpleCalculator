@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements Constants{
+public class MainActivity extends AppCompatActivity implements Constants {
 
     private SettingsData settingsData = new SettingsData();
 
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
 
     private Data tempFormulaArr = new Data();
     private Calc calc = new Calc();
-
 
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(
@@ -43,9 +42,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
                 }
             });
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
         initView();
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -66,22 +60,18 @@ public class MainActivity extends AppCompatActivity implements Constants{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent runSettings = new Intent (MainActivity.this, SettingsActivity.class);
+        Intent runSettings = new Intent(MainActivity.this, SettingsActivity.class);
         mStartForResult.launch(runSettings);
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    private void initView () {
+    private void initView() {
         textViewFormula = findViewById(R.id.textView_formula);
         textViewResult = findViewById(R.id.textView_result);
         initButton();
     }
 
-
-
-    private void initButton () {
+    private void initButton() {
         Button button1 = findViewById(R.id.button_1);
         Button button2 = findViewById(R.id.button_2);
         Button button3 = findViewById(R.id.button_3);
@@ -101,8 +91,6 @@ public class MainActivity extends AppCompatActivity implements Constants{
         Button button_backspace = findViewById(R.id.button_backspace);
         Button button_plus_minus = findViewById(R.id.button_plus_minus);
         Button button_equal = findViewById(R.id.button_equal);
-
-
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -239,21 +227,15 @@ public class MainActivity extends AppCompatActivity implements Constants{
         });
     }
 
-
-
-    private void setTextViewFormula (ButtonData symb) {
+    private void setTextViewFormula(ButtonData symb) {
         tempFormulaArr.setSymbolOnFormula(symb);
         getTextView();
     }
-
-
 
     private void setTextViewPlusMinus() {
         tempFormulaArr.setPlusMinusOnFormula();
         getTextView();
     }
-
-
 
     private void delTextViewFull() {
         tempFormulaArr.clear();
@@ -261,26 +243,18 @@ public class MainActivity extends AppCompatActivity implements Constants{
         getTextViewResult();
     }
 
-
-
     private void delTextViewFormulaSymb() {
         tempFormulaArr.remove();
         getTextView();
     }
 
-
-
     private void getTextView() {
         textViewFormula.setText(tempFormulaArr.getFormula());
     }
 
-
-
     private void getTextViewResult() {
         textViewResult.setText(calc.getResult(tempFormulaArr));
     }
-
-
 
     private void getSettings() {
         SharedPreferences sharedPref = getSharedPreferences(APP_THEME, MODE_PRIVATE);
@@ -288,7 +262,7 @@ public class MainActivity extends AppCompatActivity implements Constants{
         settingsData.setSetting(value);
     }
 
-    private int getAppTheme(){
+    private int getAppTheme() {
         if (settingsData.getSetting() == DARK) {
             return R.style.MyDarkTheme;
         } else {
@@ -296,12 +270,11 @@ public class MainActivity extends AppCompatActivity implements Constants{
         }
     }
 
-    public int getAppLayout(){
+    public int getAppLayout() {
         if (settingsData.getSetting() == DARK) {
             return R.layout.activity_main_dark;
         } else {
             return R.layout.activity_main;
         }
     }
-
 }

@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity implements Constants {
     private void initButton(SettingsData settingsData) {
         Button button_ok = findViewById(R.id.button_ok);
         Button button_cancel = findViewById(R.id.button_cancel);
-        radGrp = (RadioGroup)findViewById(R.id.radios);
+        radGrp = (RadioGroup) findViewById(R.id.radios);
         radBtnLight = (RadioButton) findViewById(R.id.radioButton_light);
         radBtnDark = (RadioButton) findViewById(R.id.radioButton_dark);
 
@@ -85,13 +85,9 @@ public class SettingsActivity extends AppCompatActivity implements Constants {
         }
     }
 
-
-
     private void setSettingsData(int value) {
         settingsData.setSetting(value);
     }
-
-
 
     private void setSettings() {
         int value = settingsData.getSetting();
@@ -107,7 +103,7 @@ public class SettingsActivity extends AppCompatActivity implements Constants {
         settingsData.setSetting(value);
     }
 
-    private int getAppTheme(){
+    private int getAppTheme() {
         if (settingsData.getSetting() == DARK) {
             return R.style.MyDarkTheme;
         } else {
@@ -115,7 +111,7 @@ public class SettingsActivity extends AppCompatActivity implements Constants {
         }
     }
 
-    public int getAppLayout(){
+    public int getAppLayout() {
         if (settingsData.getSetting() == DARK) {
             return R.layout.activity_settings_dark;
         } else {

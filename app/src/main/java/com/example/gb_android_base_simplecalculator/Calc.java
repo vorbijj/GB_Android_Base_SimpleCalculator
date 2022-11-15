@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 public class Calc {
 
-    private static final String BY_ZERO = "Деление на ноль не возможно";
+    private static final String BY_ZERO = "Деление на ноль невозможно";
     private static final String TO_ZERO = "χ → -∞";
 
     private static final String STR_PLUS = "+";
@@ -18,10 +18,9 @@ public class Calc {
 
     DecimalFormat decimalFormat = new DecimalFormat("#.##########");
     MathContext mc = new MathContext(10, RoundingMode.CEILING);
-    BigDecimal limit = new BigDecimal(0.0000000001);
+    BigDecimal limit = new BigDecimal("0.0000000001");
 
-    public String getResult (Data formula) {
-
+    public String getResult(Data formula) {
         if (formula.isNotEmpty()) {
             return doCalc(formula);
         }
@@ -29,13 +28,10 @@ public class Calc {
     }
 
     private String doCalc(Data formula) {
-
         String[] strFormula = formula.getFormula()
                 .replaceAll(",", ".")
                 .replaceAll("[()]", "")
                 .split(" ");
-
-
 
         boolean isZero = false;
 
@@ -55,7 +51,7 @@ public class Calc {
                     if (value2.compareTo(BigDecimal.ZERO) == 0) {
                         isZero = true;
                     } else {
-                        value1 = value1.divide(value2, 10 , RoundingMode.CEILING);
+                        value1 = value1.divide(value2, 10, RoundingMode.CEILING);
                     }
                     break;
                 case STR_MULT:
@@ -63,7 +59,6 @@ public class Calc {
                     break;
             }
         }
-
 
         if (isZero) {
             return BY_ZERO;
@@ -74,10 +69,10 @@ public class Calc {
         }
     }
 
-    private boolean isValueTendsToZero (BigDecimal value) {
+    private boolean isValueTendsToZero(BigDecimal value) {
         if (value.compareTo(BigDecimal.ZERO) == 0) {
             return false;
         }
-        return value.abs(mc).compareTo(limit) == -1;
+        return value.abs(mc).compareTo(limit) < 0;
     }
 }

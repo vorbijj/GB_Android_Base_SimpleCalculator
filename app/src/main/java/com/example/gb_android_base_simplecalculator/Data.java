@@ -11,8 +11,6 @@ public class Data {
         this.symbArr = new ArrayList<>();
     }
 
-
-
     public void setSymbolOnFormula(ButtonData symb) {
         switch (symb) {
             case ONE:
@@ -33,12 +31,11 @@ public class Data {
             case MULTIPLY:
                 setSymbolOnFormulaSymb(symb);
                 break;
-            case POINT: setSymbolOnFormulaPoint(symb);
+            case POINT:
+                setSymbolOnFormulaPoint(symb);
                 break;
         }
     }
-
-
 
     public void setSymbolOnFormulaNum(ButtonData symb) {
         if (symbArr.isEmpty()) {
@@ -55,8 +52,6 @@ public class Data {
         }
     }
 
-
-
     public void setSymbolOnFormulaSymb(ButtonData symb) {
         if (isAddSymbol()) {
             this.symbArr.add(ButtonData.SPACE_L.getSymbol());
@@ -68,50 +63,42 @@ public class Data {
         }
     }
 
-
-
     public void setSymbolOnFormulaPoint(ButtonData symb) {
         if (isAddPoint()) {
             this.symbArr.add(symb.getSymbol());
         }
     }
 
-
-
     public void setPlusMinusOnFormula() {
-
-            if (this.symbArr.contains(ButtonData.MARKER_END_SPACE.getSymbol())) {
-                this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_END_SPACE.getSymbol()),
-                        ButtonData.MARKER_END_MINUS.getSymbol());
-            } else if (this.symbArr.contains(ButtonData.MARKER_END_MINUS.getSymbol())) {
-                this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_END_MINUS.getSymbol()),
-                        ButtonData.MARKER_END_SPACE.getSymbol());
-            } else if (this.symbArr.contains(ButtonData.MARKER_START_SPACE.getSymbol())) {
-                this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_START_SPACE.getSymbol()),
-                        ButtonData.MARKER_START_MINUS.getSymbol());
-            } else if (this.symbArr.contains(ButtonData.MARKER_START_MINUS.getSymbol())) {
-                this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_START_MINUS.getSymbol()),
-                        ButtonData.MARKER_START_SPACE.getSymbol());
-            }
-
+        if (this.symbArr.contains(ButtonData.MARKER_END_SPACE.getSymbol())) {
+            this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_END_SPACE.getSymbol()),
+                    ButtonData.MARKER_END_MINUS.getSymbol());
+        } else if (this.symbArr.contains(ButtonData.MARKER_END_MINUS.getSymbol())) {
+            this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_END_MINUS.getSymbol()),
+                    ButtonData.MARKER_END_SPACE.getSymbol());
+        } else if (this.symbArr.contains(ButtonData.MARKER_START_SPACE.getSymbol())) {
+            this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_START_SPACE.getSymbol()),
+                    ButtonData.MARKER_START_MINUS.getSymbol());
+        } else if (this.symbArr.contains(ButtonData.MARKER_START_MINUS.getSymbol())) {
+            this.symbArr.set(this.symbArr.indexOf(ButtonData.MARKER_START_MINUS.getSymbol()),
+                    ButtonData.MARKER_START_SPACE.getSymbol());
+        }
     }
-
 
 
     private boolean isGetSymbolAfterZero() {
         if (this.symbArr.contains(ButtonData.SPACE_R.getSymbol())) {
             int indexR = this.symbArr.indexOf(ButtonData.SPACE_R.getSymbol());
-            if ((this.symbArr.size()-1) == indexR) {
+            if ((this.symbArr.size() - 1) == indexR) {
                 return false;
             } else {
                 return (this.symbArr.get(indexR + 2) == ButtonData.ZERO.getSymbol()) &&
-                        ((this.symbArr.size()-3) == indexR);
+                        ((this.symbArr.size() - 3) == indexR);
             }
         }
         return (this.symbArr.get(1) == ButtonData.ZERO.getSymbol()) &&
                 (this.symbArr.size() == 2);
     }
-
 
 
     private boolean isAddSymbol() {
@@ -124,13 +111,11 @@ public class Data {
         }
 
         if ((this.symbArr.contains(ButtonData.MARKER_START_SPACE.getSymbol()) ||
-                this.symbArr.contains(ButtonData.MARKER_START_MINUS.getSymbol())) && this.symbArr.size() == 1){
+                this.symbArr.contains(ButtonData.MARKER_START_MINUS.getSymbol())) && this.symbArr.size() == 1) {
             return false;
         }
         return true;
     }
-
-
 
     private boolean isAddPoint() {
         if (this.symbArr.isEmpty()) {
@@ -142,7 +127,7 @@ public class Data {
         int indexPoint = this.symbArr.indexOf(ButtonData.POINT.getSymbol());
         int indexSymb = this.symbArr.indexOf(ButtonData.SPACE_R.getSymbol());
 
-        if((indexSymb < 0)||(indexPoint > 0 && indexPoint > indexSymb)||
+        if ((indexSymb < 0) || (indexPoint > 0 && indexPoint > indexSymb) ||
                 (indexPoint < 0 && indexPoint > indexSymb)) {
             count = 1;
         } else {
@@ -150,7 +135,7 @@ public class Data {
         }
 
         for (Character s : this.symbArr) {
-            if (s == ButtonData.POINT.getSymbol()){
+            if (s == ButtonData.POINT.getSymbol()) {
                 count--;
             }
         }
@@ -158,14 +143,12 @@ public class Data {
             return false;
         }
 
-        if(isNotSymbToLeft()) {
+        if (isNotSymbToLeft()) {
             return true;
         } else {
             return false;
         }
     }
-
-
 
     private boolean isAddSymbolPlusMinus() {
         if (this.symbArr.contains(ButtonData.SPACE_R.getSymbol())) {
@@ -177,10 +160,8 @@ public class Data {
         return false;
     }
 
-
-
     private boolean isNotSymbToLeft() {
-       char ch = this.symbArr.get(this.symbArr.size()-1);
+        char ch = this.symbArr.get(this.symbArr.size() - 1);
         if (ch == ButtonData.PLUS.getSymbol() ||
                 ch == ButtonData.MINUS.getSymbol() ||
                 ch == ButtonData.DIVIDE.getSymbol() ||
@@ -196,11 +177,9 @@ public class Data {
         return true;
     }
 
-
-
-    public String getFormula () {
+    public String getFormula() {
         StringBuilder sb = new StringBuilder();
-        if (isNotEmpty()){
+        if (isNotEmpty()) {
             for (Character s : this.symbArr) {
                 sb.append(s.toString());
             }
@@ -231,9 +210,7 @@ public class Data {
         }
     }
 
-
-
-    public boolean isNotEmpty(){
+    public boolean isNotEmpty() {
         if (this.symbArr.isEmpty()) {
             return false;
         } else {
@@ -241,34 +218,29 @@ public class Data {
         }
     }
 
-
-
     public void clear() {
         if (isNotEmpty()) {
             this.symbArr.clear();
         }
     }
 
-
-
     public void remove() {
         if (isNotEmpty()) {
-            if (this.symbArr.get(symbArr.size()-1) == ButtonData.SPACE_R.getSymbol()) {
-                this.symbArr.remove(symbArr.size()-1);
-                this.symbArr.remove(symbArr.size()-1);
-                this.symbArr.remove(symbArr.size()-1);
-            } else if (this.symbArr.get(symbArr.size()-2) == ButtonData.MARKER_END_SPACE.getSymbol() ||
-                    this.symbArr.get(symbArr.size()-2) == ButtonData.MARKER_END_MINUS.getSymbol()) {
-                this.symbArr.remove(symbArr.size()-1);
-                this.symbArr.remove(symbArr.size()-1);
-            } else if (this.symbArr.get(symbArr.size()-2) == ButtonData.MARKER_START_SPACE.getSymbol() ||
-                    this.symbArr.get(symbArr.size()-2) == ButtonData.MARKER_START_MINUS.getSymbol()) {
-                this.symbArr.remove(symbArr.size()-1);
-                this.symbArr.remove(symbArr.size()-1);
+            if (this.symbArr.get(symbArr.size() - 1) == ButtonData.SPACE_R.getSymbol()) {
+                this.symbArr.remove(symbArr.size() - 1);
+                this.symbArr.remove(symbArr.size() - 1);
+                this.symbArr.remove(symbArr.size() - 1);
+            } else if (this.symbArr.get(symbArr.size() - 2) == ButtonData.MARKER_END_SPACE.getSymbol() ||
+                    this.symbArr.get(symbArr.size() - 2) == ButtonData.MARKER_END_MINUS.getSymbol()) {
+                this.symbArr.remove(symbArr.size() - 1);
+                this.symbArr.remove(symbArr.size() - 1);
+            } else if (this.symbArr.get(symbArr.size() - 2) == ButtonData.MARKER_START_SPACE.getSymbol() ||
+                    this.symbArr.get(symbArr.size() - 2) == ButtonData.MARKER_START_MINUS.getSymbol()) {
+                this.symbArr.remove(symbArr.size() - 1);
+                this.symbArr.remove(symbArr.size() - 1);
             } else {
-                this.symbArr.remove(symbArr.size()-1);
+                this.symbArr.remove(symbArr.size() - 1);
             }
         }
     }
-
 }
